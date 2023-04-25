@@ -2,9 +2,9 @@ name: 050-docker-build-workflow
 
 on:
   push:
-    branches: none # [ main ]
+    branches: main
   pull_request:
-    branches: none # [ main ]
+    branches: main 
 
   # Allows you to run this workflow manually from the Actions
   workflow_dispatch:
