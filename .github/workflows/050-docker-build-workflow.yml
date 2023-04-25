@@ -25,3 +25,22 @@ jobs:
         with:
           name: dist
           path: ./dist
+      - name: validate all input
+        run: |
+          pwd
+          ls 
+          cd dist
+      - name: download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: dist
+      - name: validate output
+        run: |
+          pwd
+          ls
+      - name: tar folder
+        uses: nxtlvlsoftware/tar-ops-action@v1
+        with:
+          operation: compress
+          files: dist
+          outPath: ./dist.tgz
