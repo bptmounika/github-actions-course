@@ -26,11 +26,12 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: 03-app-dotnet
+          file: ./Dockerfile
           push: true
           tags:  ${{ secrets.DOCKERHUB_USERNAME }}/app:latest
-      - name: Build the Docker image
-        working-directory: 03-app-dotnet
-        run: docker build . --file Dockerfile --tag my-app-dotnet:$(date +%s)
+#       - name: Build the Docker image
+#         working-directory: 03-app-dotnet
+#         run: docker build . --file Dockerfile --tag my-app-dotnet:$(date +%s)
       - name: upload all aritifacts
         uses: actions/upload-artifact@v3
         with:
