@@ -28,7 +28,7 @@ jobs:
           context: 03-app-dotnet
           file: ./Dockerfile
           push: true
-          tags:  ${{ secrets.DOCKERHUB_USERNAME }}/app:latest
+          tags:  ${{ secrets.DOCKERHUB_USERNAME }}/my-app-dotnet:latest
 #       - name: Build the Docker image
 #         working-directory: 03-app-dotnet
 #         run: docker build . --file Dockerfile --tag my-app-dotnet:$(date +%s)
