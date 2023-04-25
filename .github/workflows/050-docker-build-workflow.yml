@@ -1,5 +1,4 @@
----
-name: 050-docker-build-workflow
+name: docker-build-workflow
 on:
   push:
     branches: main
@@ -21,3 +20,8 @@ jobs:
       - name: Build the Docker image
         working-directory: 03-app-dotnet
         run: docker build . --file Dockerfile --tag my-app-dotnet:$(date +%s)
+      - name: upload all aritifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist
+          path: ./dist
