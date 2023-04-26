@@ -24,15 +24,24 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Docker meta
+        id: docker_meta
+        uses: crazy-max/ghaction-docker-meta@v1
+        with:
+        images: l7r7/sample
+        tag-custom: latest
+        tag-semver: |
+        {{raw}}
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
-          push: false
-          outputs: |
-            type=oci,dest=./${{ matrix.component.Name }}.tar
-          context: 03-app-dotnet
-          dockerfile: Dockerfile
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-app-dotnet:latest
+        push: false
+        context: 03-app-dotnet
+        dockerfile: Dockerfile
+        tags: ${{ steps.docker_meta.outputs.tags }}
+        labels: ${{ steps.docker_meta.outputs.labels }}
+
+         # tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-app-dotnet:latest
 #       - name: Build the Docker image
 #         working-directory: 03-app-dotnet
 #         run: docker build . --file Dockerfile --tag my-app-dotnet:$(date +%s)
