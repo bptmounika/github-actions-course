@@ -32,26 +32,26 @@ jobs:
 #           tag-custom: latest
 #           tag-semver: |
 #             {{raw}}
-      - name: Build and push
-        uses: docker/build-push-action@v4
-        with:
-          push: true
-          context: 03-app-dotnet
-          dockerfile: Dockerfile
-          outPath: ${{ secrets.DOCKERHUB_USERNAME }}/my-app-dotnet:latest.tgz
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-app-dotnet:latest
-      - name: tar file
-        uses: nxtlvlsoftware/tar-ops-action@v1
-        with:
-          operation: compress
-          files: Dockerfile
-          outPath: ${{ secrets.DOCKERHUB_USERNAME }}/my-app-dotnet:latest.tgz
+#       - name: Build and push
+#         uses: docker/build-push-action@v4
+#         with:
+#           push: true
+#           context: 03-app-dotnet
+#           dockerfile: Dockerfile
+#           outPath: ${{ secrets.DOCKERHUB_USERNAME }}/my-app-dotnet:latest.tgz
+#           tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-app-dotnet:latest
+#       - name: tar file
+#         uses: nxtlvlsoftware/tar-ops-action@v1
+#         with:
+#           operation: compress
+#           files: Dockerfile
+#           outPath: ${{ secrets.DOCKERHUB_USERNAME }}/my-app-dotnet:latest.tgz
          # labels: ${{ steps.docker_meta.outputs.labels }}
 
          # tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-app-dotnet:latest
-#       - name: Build the Docker image
-#         working-directory: 03-app-dotnet
-#         run: docker build . --file Dockerfile --tag my-app-dotnet:$(date +%s)
+      - name: Build the Docker image
+        working-directory: 03-app-dotnet
+        run: docker build . --file Dockerfile --tag my-app-dotnet:$(date +%s)
 #       - name: upload all aritifacts
 #         uses: actions/upload-artifact@v3
 #         with:
