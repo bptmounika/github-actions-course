@@ -29,8 +29,9 @@ jobs:
          docker save my-app-dotnet > my-image.tar
          ls
          gzip my-image.tar
-         ls -lh my-image.tgz
+         ls -lh my-image.tar.gz
          ls
+         docker push boyapatimounika/my-image:tarname
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
