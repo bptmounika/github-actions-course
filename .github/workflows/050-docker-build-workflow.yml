@@ -30,8 +30,6 @@ jobs:
         with:
         images: l7r7/sample
         tag-custom: latest
-        tag-semver: |
-        {{raw}}
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
