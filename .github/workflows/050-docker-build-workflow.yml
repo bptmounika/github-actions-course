@@ -33,7 +33,9 @@ jobs:
 #           tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-app-dotnet:latest
       - name: Build the Docker image
         working-directory: 03-app-dotnet
-        run: docker build . --file Dockerfile --tag my-app-dotnet:$(date +%s)  > my-image.tar
+        run: |
+         docker build . --file Dockerfile --tag my-app-dotnet:$(date +%s)
+         docker save my-app-dotnet > my-image.tar
     #         run: docker build . --file Dockerfile --tag my-app-dotnet:$(date +%s)
 #       - name: upload all aritifacts
 #         uses: actions/upload-artifact@v3
