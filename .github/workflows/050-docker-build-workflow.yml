@@ -35,7 +35,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          context: my-image.tar
+          context: .
           dockerfile: my-image.tar.gz
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-image:newtar
 #         run: docker build . --file Dockerfile --tag my-app-dotnet:$(date +%s)
