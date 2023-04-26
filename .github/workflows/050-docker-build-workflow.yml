@@ -32,31 +32,31 @@ jobs:
 #             type=oci,dest=./03-app-dotnet .tar
           context: 03-app-dotnet
           dockerfile: Dockerfile
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-app-dotnet:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-app-dotnet:latest.tar
 #       - name: Build the Docker image
 #         working-directory: 03-app-dotnet
 #         run: docker build . --file Dockerfile --tag my-app-dotnet:$(date +%s)
-      - name: upload all aritifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: dist
-          path: ./03-app-dotnet
-      - name: validate all input
-        run: |
-          pwd
-          ls 
-          cd dist
-      - name: download artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: dist
-      - name: validate output
-        run: |
-          pwd
-          ls
-      - name: tar folder
-        uses: nxtlvlsoftware/tar-ops-action@v1
-        with:
-          operation: compress
-          files: dist
-          outPath: ./dist.tgz
+#       - name: upload all aritifacts
+#         uses: actions/upload-artifact@v3
+#         with:
+#           name: dist
+#           path: ./03-app-dotnet
+#       - name: validate all input
+#         run: |
+#           pwd
+#           ls 
+#           cd dist
+#       - name: download artifact
+#         uses: actions/download-artifact@v3
+#         with:
+#           name: dist
+#       - name: validate output
+#         run: |
+#           pwd
+#           ls
+#       - name: tar folder
+#         uses: nxtlvlsoftware/tar-ops-action@v1
+#         with:
+#           operation: compress
+#           files: dist
+#           outPath: ./dist.tgz
