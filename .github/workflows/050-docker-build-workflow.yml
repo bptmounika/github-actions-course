@@ -50,22 +50,15 @@ jobs:
 #           operation: compress
 #           files: dist
 #           outPath: ./dist.tgz
-#       - name: Build and push
-#         uses: docker/build-push-action@v4
-#         with:
-#           push: true
-#           context: 03-app-dotnet
-#           file: Dockerfile
-#           tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-app:new
       - name: validate all input
         run: |
           pwd
           ls 
           cd my-image
-#       - name: download artifact
-#         uses: actions/download-artifact@v3
-#         with:
-#           name: dist
+      - name: download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: my-image
 #       - name: validate output
 #         run: |
 #           pwd
