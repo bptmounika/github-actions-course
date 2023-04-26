@@ -52,11 +52,11 @@ jobs:
       - name: Build the Docker image
         working-directory: 03-app-dotnet
         run: docker build . --file Dockerfile --tag my-app-dotnet:$(date +%s)
-#       - name: upload all aritifacts
-#         uses: actions/upload-artifact@v3
-#         with:
-#           name: dist
-#           path: ./03-app-dotnet
+      - name: upload all aritifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist
+          path: ./my-app-dotnet
 #       - name: validate all input
 #         run: |
 #           pwd
