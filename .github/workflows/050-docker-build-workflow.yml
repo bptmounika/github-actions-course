@@ -28,11 +28,11 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-#           outputs: |
-#             type=oci,dest=./03-app-dotnet .tar
+          outputs: |
+            type=oci,dest=./${{ secrets.DOCKERHUB_USERNAME }}.tar
           context: 03-app-dotnet
           dockerfile: Dockerfile
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-app-dotnet:latest.tar
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-app-dotnet:latest
 #       - name: Build the Docker image
 #         working-directory: 03-app-dotnet
 #         run: docker build . --file Dockerfile --tag my-app-dotnet:$(date +%s)
