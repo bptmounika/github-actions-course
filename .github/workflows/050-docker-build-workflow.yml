@@ -36,6 +36,7 @@ jobs:
         run: |
          docker build . --file Dockerfile --tag my-app-dotnet:$(date +%s)
          docker save my-app-dotnet > my-image.tar
+         ls
          gzip my-image.tar
     #         run: docker build . --file Dockerfile --tag my-app-dotnet:$(date +%s)
 #       - name: upload all aritifacts
