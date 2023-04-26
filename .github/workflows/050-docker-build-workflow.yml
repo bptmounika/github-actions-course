@@ -17,21 +17,21 @@ jobs:
           sudo apt install tar gzip build-essential
           ls
           cd  dist
-#       - name: Unzip image 
-#         run: tar -zxvf pga.tar.gz
+      - name: Unzip image 
+        run: tar -zxvf my-app-dotnet.tar.gz
       - name: Login to Docker Hub
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - name: Docker meta
-        id: docker_meta
-        uses: crazy-max/ghaction-docker-meta@v1
-        with:
-          images: l7r7/sample
-          tag-custom: latest
-          tag-semver: |
-            {{raw}}
+#       - name: Docker meta
+#         id: docker_meta
+#         uses: crazy-max/ghaction-docker-meta@v1
+#         with:
+#           images: l7r7/sample
+#           tag-custom: latest
+#           tag-semver: |
+#             {{raw}}
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
