@@ -29,16 +29,16 @@ jobs:
          docker save my-app-dotnet > my-image.tar
          ls
          gzip my-image.tar
-         ls -lh my-image.tar.gz
+         ls -lh my-image.tgz
          ls
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
           push: true
           context: 03-app-dotnet
-          dockerfile: my-image.tar.gz
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-image:newtag
-    #         run: docker build . --file Dockerfile --tag my-app-dotnet:$(date +%s)
+          dockerfile: my-image.tgz
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-image:newtar
+#         run: docker build . --file Dockerfile --tag my-app-dotnet:$(date +%s)
 #       - name: upload all aritifacts
 #         uses: actions/upload-artifact@v3
 #         with:
