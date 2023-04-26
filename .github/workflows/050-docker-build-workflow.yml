@@ -30,6 +30,7 @@ jobs:
          ls
          gzip my-image.tar
          ls -lh my-image.tar.gz
+         ls
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
