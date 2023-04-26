@@ -28,8 +28,8 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          outputs: |
-            type=oci,dest=./03-app-dotnet .tar
+#           outputs: |
+#             type=oci,dest=./03-app-dotnet .tar
           context: 03-app-dotnet
           dockerfile: Dockerfile
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-app-dotnet:latest
