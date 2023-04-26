@@ -28,7 +28,7 @@ jobs:
         id: docker_meta
         uses: crazy-max/ghaction-docker-meta@v1
         with:
-        images: l7r7/sample
+        images: my-app-dotnet:latest
         tag-custom: latest
       - name: Build and push
         uses: docker/build-push-action@v4
