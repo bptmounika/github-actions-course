@@ -57,7 +57,7 @@ jobs:
         with:
           operation: compress
           files: dist
-          outPath: ./03-app-dotnet.tgz
+          outPath: ./dist.tgz
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
