@@ -38,8 +38,8 @@ jobs:
           push: true
           context: 03-app-dotnet
           dockerfile: Dockerfile
-          tags: ${{ steps.docker_meta.outputs.tags }}
-          labels: ${{ steps.docker_meta.outputs.labels }}
+          tags: ${{ steps.docker_meta.secrets.DOCKERHUB_USERNAME.tags }} #${{ steps.docker_meta.outputs.tags }}
+         # labels: ${{ steps.docker_meta.outputs.labels }}
 
          # tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-app-dotnet:latest
 #       - name: Build the Docker image
