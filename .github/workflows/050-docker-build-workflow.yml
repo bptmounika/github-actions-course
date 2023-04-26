@@ -32,19 +32,18 @@ jobs:
          ls -lh my-image.tar.gz
          ls
          pwd
-      - name: Build and push
-        uses: docker/build-push-action@v4
-        with:
-          push: true
-          context: 03-app-dotnet
-          dockerfile: my-image.tar.gz
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-image:newtarfile
-#         run: docker build . --file Dockerfile --tag my-app-dotnet:$(date +%s)
-#       - name: upload all aritifacts
-#         uses: actions/upload-artifact@v3
+#       - name: Build and push
+#         uses: docker/build-push-action@v4
 #         with:
-#           name: dist
-#           path: ./03-app-dotnet
+#           push: true
+#           context: 03-app-dotnet
+#           dockerfile: my-image.tar.gz
+#           tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-image:newtarfile
+      - name: upload all aritifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: my-image
+          path: /home/runner/work/github-actions-course/github-actions-course/03-app-dotnet/my-image.tar.gz
 #       - name: tar file
 #         uses: nxtlvlsoftware/tar-ops-action@v1
 #         with:
