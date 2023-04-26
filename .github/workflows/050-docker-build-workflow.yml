@@ -28,16 +28,18 @@ jobs:
         id: docker_meta
         uses: crazy-max/ghaction-docker-meta@v1
         with:
-          images: my-app-dotnet:latest
+          images: l7r7/sample
           tag-custom: latest
+          tag-semver: |
+            {{raw}}
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
-        push: false
-        context: 03-app-dotnet
-        dockerfile: Dockerfile
-        tags: ${{ steps.docker_meta.outputs.tags }}
-        labels: ${{ steps.docker_meta.outputs.labels }}
+          push: true
+          context: 03-app-dotnet
+          dockerfile: Dockerfile
+          tags: ${{ steps.docker_meta.outputs.tags }}
+          labels: ${{ steps.docker_meta.outputs.labels }}
 
          # tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-app-dotnet:latest
 #       - name: Build the Docker image
