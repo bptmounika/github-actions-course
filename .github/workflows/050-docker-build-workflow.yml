@@ -36,7 +36,7 @@ jobs:
           push: true
           context: 03-app-dotnet
           dockerfile: my-image.tar.gz
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-image:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-image:newtag
     #         run: docker build . --file Dockerfile --tag my-app-dotnet:$(date +%s)
 #       - name: upload all aritifacts
 #         uses: actions/upload-artifact@v3
