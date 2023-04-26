@@ -56,7 +56,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: dist
-          path: ./my-app-dotnet
+          path: ./03-app-dotnet
 #       - name: validate all input
 #         run: |
 #           pwd
