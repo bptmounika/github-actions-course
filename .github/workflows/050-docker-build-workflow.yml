@@ -58,6 +58,13 @@ jobs:
           operation: compress
           files: dist
           outPath: ./03-app-dotnet.tgz
+      - name: Build and push
+        uses: docker/build-push-action@v4
+        with:
+          push: true
+          context: 03-app-dotnet.tgz
+          file: dist
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-app-dotnet:latest
 #       - name: validate all input
 #         run: |
 #           pwd
