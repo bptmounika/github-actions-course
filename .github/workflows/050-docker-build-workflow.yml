@@ -50,11 +50,11 @@ jobs:
 #           operation: compress
 #           files: dist
 #           outPath: ./dist.tgz
-      - name: validate all input
-        run: |
-          pwd
-          ls 
-          cd my-image
+#       - name: validate all input
+#         run: |
+#           pwd
+#           ls 
+#           cd my-image
       - name: download artifact
         uses: actions/download-artifact@v3
         with:
