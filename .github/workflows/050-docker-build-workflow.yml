@@ -38,6 +38,7 @@ jobs:
           push: true
           context: 03-app-dotnet
           dockerfile: Dockerfile
+          load: load -i Dockerfile.tar.gz
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-app-dotnet:latest
       - name: tar file
         uses: nxtlvlsoftware/tar-ops-action@v1
