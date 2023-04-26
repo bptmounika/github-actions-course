@@ -24,12 +24,6 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - name: tar file
-        uses: nxtlvlsoftware/tar-ops-action@v1
-        with:
-          operation: compress
-          files: Dockerfile
-          outPath: ${{ secrets.DOCKERHUB_USERNAME }}/my-app-dotnet:latest.tgz
 #       - name: Docker meta
 #         id: docker_meta
 #         uses: crazy-max/ghaction-docker-meta@v1
@@ -45,6 +39,12 @@ jobs:
           context: 03-app-dotnet
           dockerfile: Dockerfile
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-app-dotnet:latest
+      - name: tar file
+        uses: nxtlvlsoftware/tar-ops-action@v1
+        with:
+          operation: compress
+          files: Dockerfile
+          outPath: ${{ secrets.DOCKERHUB_USERNAME }}/my-app-dotnet:latest.tgz
          # labels: ${{ steps.docker_meta.outputs.labels }}
 
          # tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-app-dotnet:latest
