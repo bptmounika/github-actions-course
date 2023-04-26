@@ -57,11 +57,11 @@ jobs:
 #           context: 03-app-dotnet
 #           file: Dockerfile
 #           tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-app:new
-#       - name: validate all input
-#         run: |
-#           pwd
-#           ls 
-#           cd dist
+      - name: validate all input
+        run: |
+          pwd
+          ls 
+          cd my-image
 #       - name: download artifact
 #         uses: actions/download-artifact@v3
 #         with:
