@@ -58,8 +58,8 @@ jobs:
           operation: compress
           files: dist
           outPath: ./dist.tgz
-      - name: push
-        uses: docker/push-action@v4
+      - name: Build and push
+        uses: docker/build-push-action@v4
         with:
           push: true
           context: ./dist.tgz
