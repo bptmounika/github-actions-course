@@ -62,9 +62,9 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          context: dist
-          file: dist.tgz
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-app-dotnet:new
+          context: 03-app-dotnet
+          file: Dockerfile
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-app:new
 #       - name: validate all input
 #         run: |
 #           pwd
