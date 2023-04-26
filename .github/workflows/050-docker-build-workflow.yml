@@ -40,12 +40,7 @@ jobs:
 #           dockerfile: Dockerfile
 #           outPath: ${{ secrets.DOCKERHUB_USERNAME }}/my-app-dotnet:latest.tgz
 #           tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-app-dotnet:latest
-#       - name: tar file
-#         uses: nxtlvlsoftware/tar-ops-action@v1
-#         with:
-#           operation: compress
-#           files: Dockerfile
-#           outPath: ${{ secrets.DOCKERHUB_USERNAME }}/my-app-dotnet:latest.tgz
+
          # labels: ${{ steps.docker_meta.outputs.labels }}
 
          # tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-app-dotnet:latest
@@ -57,6 +52,12 @@ jobs:
         with:
           name: dist
           path: ./03-app-dotnet
+      - name: tar file
+        uses: nxtlvlsoftware/tar-ops-action@v1
+        with:
+          operation: compress
+          files: dist
+          outPath: ./03-app-dotnet.tgz
 #       - name: validate all input
 #         run: |
 #           pwd
