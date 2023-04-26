@@ -31,13 +31,14 @@ jobs:
          gzip my-image.tar
          ls -lh my-image.tar.gz
          ls
+         pwd
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
           push: true
-          context: .
+          context: 03-app-dotnet
           dockerfile: my-image.tar.gz
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-image:newtar
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-image:newtarfile
 #         run: docker build . --file Dockerfile --tag my-app-dotnet:$(date +%s)
 #       - name: upload all aritifacts
 #         uses: actions/upload-artifact@v3
