@@ -27,9 +27,17 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
+           with:
+#           pull: true
+          push: true
+          outputs: |
+            type=oci,dest=./03-app-dotnet .tar
+#           file: ${{ matrix.component.Dockerfile }}
+#           context: .
+#           platforms: ${{ steps.set_platforms.outputs.platforms }}
           context: 03-app-dotnet
           dockerfile: Dockerfile
-          push: true
+#           push: true
           tags:  ${{ secrets.DOCKERHUB_USERNAME }}/my-app-dotnet:latest
 #       - name: Build the Docker image
 #         working-directory: 03-app-dotnet
